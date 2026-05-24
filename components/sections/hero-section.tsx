@@ -10,13 +10,13 @@ import * as THREE from "three";
 function FloatingOrb() {
   const meshRef = useRef<THREE.Mesh>(null);
 
-   useFrame((state, delta) => {
-     if (meshRef.current) {
-       meshRef.current.position.y =
-         Math.sin(state.elapsedTime * 0.5) * 0.3;
-       meshRef.current.rotation.y += 0.005;
-     }
-   });
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.position.y =
+        Math.sin(state.elapsedTime * 0.5) * 0.3;
+      meshRef.current.rotation.y += 0.005;
+    }
+  });
 
   return (
     <mesh ref={meshRef}>
@@ -147,18 +147,18 @@ export function HeroSection() {
                 transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
                 className="text-center"
               >
-              <div
-                style={{
-                  background:
-                    "linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-                className="text-3xl md:text-4xl font-bold"
-              >
-                {stat.value}
-              </div>
+                <div
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                  className="text-3xl md:text-4xl font-bold"
+                >
+                  {stat.value}
+                </div>
                 <div className="mt-1 text-sm text-muted-foreground">
                   {stat.label}
                 </div>
