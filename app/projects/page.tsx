@@ -60,11 +60,11 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {project.technologies && project.technologies.map((tech: string, index: number) => (
+                    {project.technologies && project.technologies.slice(0, 4).map((tech: string, index: number) => (
                       <span key={`${tech}-${index}`} className="px-2 py-0.5 text-xs rounded bg-primary/10 text-primary">
                         {tech}
                       </span>
-                    )).slice(0, 4)}
+                    ))}
                     {project.technologies && project.technologies.length > 4 && (
                       <span className="px-2 py-0.5 text-xs rounded bg-primary/10 text-primary">
                         +{project.technologies.length - 4} more
@@ -95,9 +95,9 @@ export default function ProjectsPage() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        )
+            </Link>
+          ))}
+        </div>
       )}
     </main>
   );
