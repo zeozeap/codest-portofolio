@@ -35,7 +35,7 @@ export default function ProjectsPage() {
       {projects.length === 0 ? (
         <p className="text-center text-muted-foreground">N/A</p>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <Link
               key={project._id}
@@ -60,17 +60,12 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {project.technologies
-                      ?.map((tech: string) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 text-xs rounded bg-primary/10 text-primary"
-                        >
-                          {tech}
-                        >
-                      ))
-                      .slice(0, 4)}
-                    {project.technologies?.length > 4 && (
+                    {project.technologies && project.technologies.map((tech: string, index: number) => (
+                      <span key={`${tech}-${index}`} className="px-2 py-0.5 text-xs rounded bg-primary/10 text-primary">
+                        {tech}
+                      </span>
+                    )).slice(0, 4)}
+                    {project.technologies && project.technologies.length > 4 && (
                       <span className="px-2 py-0.5 text-xs rounded bg-primary/10 text-primary">
                         +{project.technologies.length - 4} more
                       </span>
